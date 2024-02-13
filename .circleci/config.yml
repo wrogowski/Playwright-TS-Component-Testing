@@ -9,7 +9,7 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          command: npm run test-ci
+          command: npm run test:ci
 workflows:
   e2e-test:
     jobs:
