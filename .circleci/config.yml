@@ -1,0 +1,16 @@
+version: 2.1
+orbs:
+  node: circleci/node@5
+jobs:
+  test:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.34.0-jammy
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test-ci
+workflows:
+  e2e-test:
+    jobs:
+      - test
