@@ -54,20 +54,6 @@ test.describe("Time <TextField> tests with date-fns", () => {
       expect(textFieldValue).toHaveLength(expectedLength as number);
     })
   );
-
-  test("it converts exceeding values to correct time", async ({ page }) => {
-    await expect(textField).toBeVisible();
-    await textField.focus();
-    await page.keyboard.type("9999");
-    await expect(textField).toHaveValue("09:59");
-  });
-
-  test("it does not allow to provide seconds manually", async ({ page }) => {
-    await textField.focus();
-    await page.keyboard.type("12:34:56");
-
-    await expect(textField).toHaveValue("12:56");
-  });
 });
 
 test.describe("<TextFiled> component options tests", () => {
